@@ -12,6 +12,12 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+      - name: List directory
+        run: ls -al /home/runner/work/TestThanhAuto/
+      - name: Run build script
+        run: ./TestThanhAuto/build.sh  # Kiểm tra xem file này có tồn tại không  
+      - name: Debug working directory
+        run: pwd && ls -al  
       - name: Install dependencies
         run: npm install
         working-directory: ./TestThanhAuto
