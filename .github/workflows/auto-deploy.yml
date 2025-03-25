@@ -1,0 +1,17 @@
+name: Auto Deploy
+
+on:
+  push:
+    branches:
+      - main  # Chạy khi có thay đổi trên nhánh main (sửa nếu cần)
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest  # Chạy trên máy chủ Ubuntu
+
+    steps:
+      - name: install
+        run:
+           npm install
+        
+          
