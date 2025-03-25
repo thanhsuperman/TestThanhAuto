@@ -10,8 +10,10 @@ jobs:
     runs-on: ubuntu-latest  # Chạy trên máy chủ Ubuntu
 
     steps:
-      - name: install
-        run:
-           npm install
-        
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Install dependencies
+        run: npm install
+        working-directory: ./TestThanhAuto
+              
           
