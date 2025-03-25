@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "3.1"
+metadata:
+  name: ztestbasic
+type: application
+builder:
+  resources:
+    configuration:
+      paths:
+        webapp: webappcopy
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          destination: CITEK_DEV
+          url: https://my402249.s4hana.cloud.sap
+          authenticationType: reentranceTicket # SAML support for vscode
+        app:
+          name: ZTEST_BASIC
+          package: ZTEST_BIENBANTRAHANG
+          transport: YWSK901100
+        exclude:
+          - /test/

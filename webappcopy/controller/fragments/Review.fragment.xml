@@ -1,0 +1,88 @@
+<c:FragmentDefinition
+    xmlns:m="sap.m"
+    xmlns:c="sap.ui.core"
+    xmlns:table="sap.ui.table"
+    xmlns="sap.uxap"
+    xmlns:forms="sap.ui.layout.form"
+>
+    <m:Dialog
+        contentHeight="70%"
+        id="idHeaderTextInput"
+        title="Dialog"
+        horizontalScrolling="false"
+        verticalScrolling="false"
+    >
+        <m:content>
+            <ObjectPageLayout id="idObjectPageLayout">
+                <sections>
+                    <ObjectPageSection
+                        id="idObjectPageSection"
+                        title="Section"
+                        titleUppercase="false"
+                    >
+                        <ObjectPageSubSection
+                            id="idObjectPageSubSection"
+                            title="Item"
+                            titleUppercase="false"
+                        >
+                            <blocks>
+                                <table:Table
+                                    id="tblreview"
+                                    enableColumnReordering="true"
+                                    rows="{DataReview>/results}"
+                                    selectionMode="MultiToggle"
+                                    ariaLabelledBy="title"
+                                >
+                                    <table:columns>
+                                        <table:Column
+                                            sortOrder="Ascending"
+                                            width="100px"
+                                            showSortMenuEntry="true"
+                                        >
+                                            <m:Label text="ID Line Table" />
+                                            <table:template>
+                                                <m:Text
+                                                    width="auto"
+                                                    text="{DataReview>INDEX}"
+                                                />
+                                            </table:template>
+                                        </table:Column>
+                                        <table:Column
+                                            sortOrder="Ascending"
+                                            width="175px"
+                                            showSortMenuEntry="true"
+                                        >
+                                            <m:Label text="Pallet ID" />
+                                            <table:template>
+                                                <m:Text
+                                                    width="auto"
+                                                    text="{DataReview>PALLETID}"
+                                                />
+                                            </table:template>
+                                        </table:Column>
+                                    </table:columns>
+                                </table:Table>
+                            </blocks>
+                        </ObjectPageSubSection>
+                    </ObjectPageSection>
+                </sections>
+            </ObjectPageLayout>
+        </m:content>
+
+        <m:beginButton>
+            <m:Button
+                id="btnPostDataExcelUpload"
+                press="onPostDataExcelUpload"
+                text="Upload"
+            />
+        </m:beginButton>
+
+        <m:endButton>
+            <m:Button
+                id="close"
+                press="onCloseDialogRev"
+                text="Đóng"
+            />
+        </m:endButton>
+    </m:Dialog>
+</c:FragmentDefinition>
